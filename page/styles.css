@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    flex-direction: column;
+}
+
+.loader {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader.active {
+    display: flex;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #000;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #000 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form>* {
+    display: block;
+
+    margin-top: 15px;
+}
+
+form>*:focus {
+    outline: none;
+}
+
+input, button {
+    width: 400px;
+
+    padding: 15px;
+
+    font-size: 20px;
+
+    border: 2px solid blue;
+}
+
+button {
+    border-color: green;
+    background-color: green;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 90px;
+}
+
+input.error {
+    border-color: red;
+    box-shadow: 0 0 5px 1px red;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.error-message.active {
+    display: block;
+}
+
+.info-message {
+    display: none;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.info-message.active {
+    display: block;
+}
