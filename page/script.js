@@ -59,3 +59,9 @@ async function callback(e) {
         error.classList.remove('active')
     }
 }
+
+const closebtn = document.querySelector('.close')
+closebtn.addEventListener('click', async () => {
+    await fetch(URL + '/destroy')
+    window.close()
+})

@@ -9,6 +9,15 @@ const app = express()
 app.use(express.json())
 app.use(cors({ origin: '*' }))
 
+const server = app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`)
+})
+
+app.get('/destroy', (req, res) => {
+    res.status(200).json({ message: 'Destroyed' })
+    process.exit(1)
+})
+
 app.get('*', (req, res) => {
     res.status(200).json({ message: 'Server worked' })
 })
@@ -27,5 +36,3 @@ app.post('*', (req, res) => {
         res.status(500)
     }
 })
-
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
